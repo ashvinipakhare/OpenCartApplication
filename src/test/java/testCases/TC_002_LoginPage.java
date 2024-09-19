@@ -18,7 +18,7 @@ public class TC_002_LoginPage extends BaseClass
 		//Home Page
 		HomePage hp=new HomePage(driver);
 		hp.clickMyAccount();
-		hp.clickOnLogin();
+		hp.clickOnLogin();   
 		
 		
 		//Login Page
