@@ -1,0 +1,10 @@
+10:00:41.216 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  D:\Eclips\OpenCartApplication\Master.xml
+
+10:04:03.341 [main] INFO  org.testng.internal.Utils - [XmlSuite] [WARN] 'parallel' value 'false' is no longer valid, defaulting to 'none'.
+10:04:03.519 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  D:\Eclips\OpenCartApplication\Master.xml
+
+10:06:18.703 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  D:\Eclips\OpenCartApplication\Master.xml
+

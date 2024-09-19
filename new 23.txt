@@ -1,0 +1,103 @@
+Need to discuss -
+
+1. https://procturapp.atlassian.net/browse/PR5-16629
+2. https://procturapp.atlassian.net/browse/PR5-16630
+3. https://procturapp.atlassian.net/browse/PR5-16638
+4. https://procturapp.atlassian.net/browse/PR5-16639
+5. https://procturapp.atlassian.net/browse/PR5-16682
+6. 
+
+
+
+
+http://192.168.1.34:4444 
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Properties>
+        <Property name="basePath">./logs</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <RollingFile name="File" fileName="${basePath}/automation.log" filePattern="${basePath}/automation-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <SizeBasedTriggerPolicy size="50MB"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>
+
+
+
+
+
+
+dependencies
+
+<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.17.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.24.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-api</artifactId>
+    <version>2.24.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-slf4j-impl</artifactId>
+    <version>2.24.0</version>
+    <scope>test</scope>
+</dependency>
+
+
+MAster XML file -
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+        <groups>
+                <run>
+                  <!-- <include name="Sanity"/> -->
+                  <!-- <include name="Regression"/>  -->
+                  <include name="Master"/>
+                </run>          
+           </groups>
+
+  <test thread-count="5" name="Test">  
+    <classes>
+      <class name="testCases.TC_001_AccountRegistrationPage"/>
+      <class name="testCases.TC_002_LoginPage"/>
+      <!--  <class name="testCases.TC_003_LoginDDT"/> -->
+    </classes>
+    
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
